@@ -11,9 +11,10 @@ input.addEventListener( 'blur', () => {
     if ( input.value === '' ) {
         inputBlock.style.border = '2px solid red';
         btnBlock.style.border = '2px solid red';
-        btn.setAttribute('disabled', '')
+        btn.setAttribute( 'disabled', '' );
     } else {
         inputBlock.style.border = '2px solid green';
+        btn.removeAttribute( 'disabled' );
     }
 } );
 
@@ -33,8 +34,10 @@ const fetchReq = async userData => {
 
 form.addEventListener( 'submit', async ( e ) => {
     e.preventDefault();
-    const userData = input.value;
-    fetchReq( userData )
+    if ( !input.value ) {
+        return;
+    }
+    fetchReq( input.value )
         .then( res => {
             console.log( res.data );
             modal.classList.add( 'open' );
