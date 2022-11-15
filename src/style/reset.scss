@@ -30,3 +30,9 @@ html, body {
   height: 100%;
   line-height: 1;
 }
+
+input:-internal-autofill-selected {
+  appearance: menulist-button;
+  background-image: none !important;
+  background-color: none;
+}
