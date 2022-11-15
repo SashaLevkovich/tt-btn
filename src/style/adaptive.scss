@@ -1,0 +1,34 @@
+@media (max-width: 640px) {
+  .input {
+    width: 30%;
+    transform: skewX(0deg);
+    background-color: rgba(255, 255, 255, 0.6);
+
+    & input {
+      transform: skewX(0deg);
+    }
+  }
+
+  .btn {
+    width: 20%;
+    transform: skewX(0deg);
+
+    & button {
+      width: 20%;
+      transform: skewX(0deg);
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .input {
+    width: 50%;
+  }
+
+  .btn {
+    width: 35%;
+    & button {
+      width: 35%;
+    }
+  }
+}
