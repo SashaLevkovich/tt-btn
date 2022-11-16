@@ -31,8 +31,22 @@ html, body {
   line-height: 1;
 }
 
-input:-internal-autofill-selected {
-  appearance: menulist-button;
-  background-image: none !important;
-  background-color: none;
+input:-webkit-autofill {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+::-webkit-input-placeholder {
+  color: #343434;
+}
+
+:-moz-placeholder {
+  color: #343434;
+}
+
+::-moz-placeholder {
+  color: #343434;
+}
+
+:-ms-input-placeholder {
+  color: #343434;
 }

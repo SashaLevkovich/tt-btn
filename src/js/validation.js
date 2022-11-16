@@ -7,16 +7,15 @@ const modal = document.querySelector( '.modal__container' );
 
 const url = 'https://httpbin.org/post';
 
-input.addEventListener( 'blur', () => {
-    if ( input.value === '' ) {
+const valid = data => {
+    if ( !data ) {
         inputBlock.style.border = '2px solid red';
         btnBlock.style.border = '2px solid red';
-        btn.setAttribute( 'disabled', '' );
+        return;
     } else {
         inputBlock.style.border = '2px solid green';
-        btn.removeAttribute( 'disabled' );
     }
-} );
+};
 
 const fetchReq = async userData => {
     const response = await fetch( url, {
@@ -32,9 +31,14 @@ const fetchReq = async userData => {
     return await response.json();
 };
 
+
+input.addEventListener( 'blur', () => valid( input.value ) );
+
 form.addEventListener( 'submit', async ( e ) => {
     e.preventDefault();
     if ( !input.value ) {
+        inputBlock.style.border = '2px solid red';
+        btnBlock.style.border = '2px solid red';
         return;
     }
     fetchReq( input.value )
